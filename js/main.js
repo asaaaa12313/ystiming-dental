@@ -110,21 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ── 7. 병원투어 영상 재생 ──
-  var playBtn = document.getElementById('play-tour');
-  var tourVideo = document.getElementById('tour-video');
-
-  if (playBtn && tourVideo) {
-    playBtn.addEventListener('click', function() {
-      tourVideo.style.display = 'block';
-      tourVideo.play();
-      playBtn.style.display = 'none';
-    });
-    tourVideo.addEventListener('ended', function() {
-      tourVideo.style.display = 'none';
-      playBtn.style.display = 'flex';
-    });
-  }
+  // ── 7. (자동재생으로 변경됨)
 
   // ── 8. 모바일 히어로 영상 교체 ──
   var heroVideo = document.getElementById('hero-video');
