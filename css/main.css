@@ -1,0 +1,366 @@
+/* ═══════════════════════════════════════
+   연세타이밍치과 메인 페이지 전용
+   ═══════════════════════════════════════ */
+
+/* ── 인트로 ── */
+.intro {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #000;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease;
+}
+.intro.hidden { opacity: 0; pointer-events: none; }
+.intro-inner {
+  text-align: center;
+  transition: all 0.9s ease;
+}
+.intro.phase-3 .intro-inner {
+  transform: scale(1.03);
+  filter: blur(8px);
+  opacity: 0;
+}
+.intro-line { overflow: hidden; margin-bottom: 2px; }
+.intro-line h1 {
+  font-size: 9vw;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.intro.phase-1 .intro-line:first-child h1,
+.intro.phase-2 .intro-line:first-child h1,
+.intro.phase-3 .intro-line:first-child h1 {
+  transform: translateY(0); opacity: 1;
+}
+.intro.phase-2 .intro-line:nth-child(2) h1,
+.intro.phase-3 .intro-line:nth-child(2) h1 {
+  transform: translateY(0); opacity: 1;
+  transition-delay: 0.08s;
+}
+.intro-sub {
+  margin-top: 24px;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: #888;
+  opacity: 0;
+  transition: opacity 0.8s 0.4s;
+}
+.intro.phase-2 .intro-sub,
+.intro.phase-3 .intro-sub { opacity: 1; }
+.intro-logo {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.intro-logo-img {
+  width: 65vw;
+  max-width: 800px;
+  filter: brightness(0) invert(1);
+  clip-path: inset(0 100% 0 0);
+}
+.intro.phase-4 .intro-logo-img {
+  animation: logoReveal 1.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+@keyframes logoReveal {
+  from { clip-path: inset(0 100% 0 0); opacity: 0.6; }
+  to { clip-path: inset(0 0% 0 0); opacity: 1; }
+}
+
+/* ── 팝업 ── */
+.popup-overlay {
+  position: fixed; inset: 0; z-index: 3000;
+  background: rgba(0,0,0,0.4);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 80px; gap: 12px;
+  overflow-y: auto;
+}
+.popup-overlay.hidden { display: none; }
+.popup { width: 330px; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+.popup-body { height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px; }
+.popup-event .popup-body { background: linear-gradient(180deg, var(--primary-dark), var(--primary)); }
+.popup-notice .popup-body { background: linear-gradient(180deg, #eee, #ddd); }
+.popup-label { font-size: 11px; letter-spacing: 0.2em; margin-bottom: 12px; }
+.popup-event .popup-label { color: rgba(255,255,255,0.4); }
+.popup-notice .popup-label { color: #999; }
+.popup-title { font-size: 24px; font-weight: 700; text-align: center; line-height: 1.5; margin-bottom: 20px; }
+.popup-event .popup-title { color: #fff; }
+.popup-notice .popup-title { color: var(--text-1); font-size: 22px; }
+.popup-divider { width: 36px; height: 1px; margin-bottom: 20px; }
+.popup-event .popup-divider { background: rgba(255,255,255,0.2); }
+.popup-notice .popup-divider { background: var(--border); }
+.popup-desc { font-size: 14px; text-align: center; line-height: 1.7; }
+.popup-event .popup-desc { color: rgba(255,255,255,0.7); }
+.popup-notice .popup-desc { color: var(--text-2); }
+.popup-event .popup-highlight { color: #fff; font-weight: 700; margin-top: 4px; }
+.popup-notice .popup-highlight { font-weight: 700; color: var(--text-2); }
+.popup-btn {
+  margin-top: 24px; padding: 10px 32px; color: #fff;
+  font-size: 13px; font-weight: 600; border: none; cursor: pointer;
+}
+.popup-event .popup-btn { background: var(--gold); }
+.popup-notice .popup-btn { background: var(--text-1); }
+.popup-date { margin-top: 20px; font-size: 10px; }
+.popup-event .popup-date { color: rgba(255,255,255,0.3); }
+.popup-footer { display: flex; border-top: 1px solid var(--border); }
+.popup-footer button { padding: 11px; background: none; border: none; font-size: 12px; }
+.popup-footer .popup-close-24h { flex: 1; border-right: 1px solid var(--border); color: #999; }
+.popup-footer .popup-close-btn { width: 54px; color: var(--text-1); font-weight: 700; }
+
+/* ── 히어로 ── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 580px;
+  background: linear-gradient(160deg, #081420, #0F2740 40%, #1a3a5c);
+  overflow: hidden;
+}
+.hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(8,20,32,0.65), rgba(15,39,64,0.55) 40%, rgba(26,58,92,0.5));
+  z-index: 1;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 20px; height: 100%;
+  display: flex; align-items: center;
+}
+.hero-location { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 18px; }
+.hero-title {
+  font-size: 46px; font-weight: 300; color: #fff;
+  line-height: 1.25; letter-spacing: -0.03em;
+}
+.hero-title strong { font-weight: 700; }
+.hero-title .accent { color: var(--accent); }
+.hero-title .gold { color: var(--gold-light); }
+.hero-subtitle {
+  font-size: 15px; color: rgba(255,255,255,0.75);
+  line-height: 1.8; max-width: 380px; margin: 22px 0 32px;
+}
+.hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-cta a {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 30px; font-size: 15px; font-weight: 700;
+}
+.hero-cta .btn-primary { background: var(--accent); color: #fff; }
+.hero-cta .btn-ghost {
+  background: rgba(255,255,255,0.1); color: #fff;
+  font-weight: 500; border: 1px solid rgba(255,255,255,0.2);
+}
+.hero-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.3); z-index: 2; padding: 0 20px;
+}
+.hero-bottom-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: space-around;
+  height: 52px; align-items: center;
+  font-size: 13px; color: rgba(255,255,255,0.6);
+}
+
+/* ── 진료안내 카드 그리드 ── */
+.treatment-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+.treatment-card {
+  display: block;
+  width: calc(33.333% - 12px);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.treatment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.treatment-card img {
+  width: 100%; aspect-ratio: 4/3;
+  object-fit: cover; display: block;
+}
+.treatment-card-info { padding: 18px; }
+.treatment-card-en {
+  font-size: 11px; letter-spacing: 0.15em;
+  color: #888; margin-bottom: 4px;
+}
+.treatment-card-info h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.treatment-card-info p {
+  font-size: 13px; color: var(--text-3);
+  line-height: 1.6; margin-bottom: 10px;
+}
+.treatment-card-more {
+  font-size: 13px; color: var(--accent); font-weight: 600;
+}
+
+/* ── 병원투어 ── */
+.tour {
+  height: 420px;
+  background: linear-gradient(160deg, #0a1a2e, #1a3a5c);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 20px;
+  position: relative; overflow: hidden;
+}
+.tour-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+}
+.tour-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.4); z-index: 1;
+}
+.tour-content { position: relative; z-index: 2; }
+.tour-label { font-size: 11px; letter-spacing: 0.15em; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+.tour-title { font-size: 24px; font-weight: 700; color: #fff; line-height: 1.5; }
+
+/* ── 의료진 (메인 요약) ── */
+.doctor-summary {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 36px;
+}
+.doctor-summary-photo { flex: 0 0 200px; }
+.doctor-summary-photo img {
+  width: 100%; aspect-ratio: 3/4;
+  object-fit: cover; border: 1px solid var(--border);
+}
+.doctor-summary-info { flex: 1; }
+.doctor-summary-info .doctor-role { font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 8px; }
+.doctor-summary-info .doctor-name { font-size: 24px; font-weight: 700; margin-bottom: 14px; }
+.doctor-summary-info .doctor-line { width: 28px; height: 2px; background: var(--primary); margin-bottom: 18px; }
+.doctor-summary-info .doctor-quote {
+  font-size: 14px; color: var(--text-2);
+  line-height: 1.85; margin-bottom: 22px;
+  border-left: 3px solid var(--border-light); padding-left: 14px;
+}
+.doctor-summary-info .doctor-brief {
+  font-size: 13px; color: var(--text-3); line-height: 1.8; margin-bottom: 20px;
+}
+.btn-more {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ── WHY US ── */
+.whyus { background: var(--primary); }
+.whyus .section-title { color: #fff; }
+.whyus .section-title .gold { color: var(--gold); }
+.whyus .section-label { color: var(--gold); }
+.whyus .section-header { margin-bottom: 44px; }
+.strength-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+}
+.strength-item {
+  padding: 34px 24px;
+  background: var(--primary);
+  text-align: center;
+}
+.strength-num { font-size: 30px; font-weight: 800; color: rgba(255,255,255,0.07); margin-bottom: 12px; }
+.strength-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.strength-desc { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+/* ── 시설 (메인 요약) ── */
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.facility-item {
+  overflow: hidden; cursor: pointer; position: relative;
+}
+.facility-item img {
+  width: 100%; aspect-ratio: 4/3;
+  object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+}
+.facility-item:hover img { transform: scale(1.05); }
+.facility-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 12px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  color: #fff; font-size: 13px; font-weight: 600;
+  opacity: 0; transition: opacity 0.3s;
+}
+.facility-item:hover .facility-caption { opacity: 1; }
+.facility-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* ── 진료시간 (메인 요약) ── */
+.visit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+}
+.visit-card {
+  background: #fff;
+  padding: 34px;
+}
+.visit-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 18px; }
+.hours-row {
+  display: flex; justify-content: space-between;
+  padding: 12px 0; border-bottom: 1px solid var(--border-light);
+}
+.hours-row:last-of-type { border-bottom: none; }
+.hours-row .day { font-size: 14px; }
+.hours-row .time { font-size: 14px; }
+.hours-row.active .day { font-weight: 600; color: var(--text-1); }
+.hours-row.active .time { font-weight: 600; color: var(--accent); }
+.hours-row.inactive .day, .hours-row.inactive .time { font-weight: 400; color: #aaa; }
+.hours-note {
+  margin-top: 14px; padding: 9px 12px;
+  background: var(--bg); border: 1px solid var(--border-light);
+  font-size: 12px; color: var(--text-2);
+}
+.hours-row.night .time { color: var(--gold); }
+.map-container {
+  width: 100%; aspect-ratio: 5/3;
+  border: 1px solid var(--border);
+  margin-bottom: 18px; overflow: hidden;
+}
+.map-container iframe { width: 100%; height: 100%; border: 0; }
+.visit-address { font-size: 14px; color: var(--text-2); margin-bottom: 12px; }
+.visit-directions { margin-bottom: 12px; }
+.visit-directions p { font-size: 13px; color: var(--text-2); margin-bottom: 4px; }
+.visit-directions strong { color: var(--text-2); font-weight: 600; margin-right: 6px; }
+.visit-tel { font-size: 14px; font-weight: 600; color: var(--text-1); }
+
+/* ── 반응형 (메인) ── */
+@media (max-width: 768px) {
+  .popup-overlay { flex-direction: column; align-items: center; padding-top: 40px; }
+  .hero-title { font-size: 32px !important; }
+  .hero-subtitle { font-size: 14px; }
+  .hero-bottom-inner { display: none; }
+  .treatment-card { width: calc(50% - 8px); }
+  .doctor-summary { flex-direction: column; align-items: center; padding: 24px; }
+  .doctor-summary-photo { flex: none; width: 180px; }
+  .strength-grid { grid-template-columns: 1fr; }
+  .facility-grid { grid-template-columns: 1fr 1fr; }
+  .visit-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .treatment-card { width: 100%; }
+}

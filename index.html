@@ -13,9 +13,9 @@
   <link rel="canonical" href="https://www.ystiming.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/main.css">
 
-  <!-- 구조화 데이터 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,7 +40,7 @@
   }
   </script>
 </head>
-<body>
+<body class="main-page">
 
   <!-- ════════ 인트로 ════════ -->
   <div class="intro" id="intro">
@@ -54,13 +54,12 @@
       <p class="intro-sub">YONSEI TIMING DENTAL CLINIC</p>
     </div>
     <div class="intro-logo">
-      <img src="assets/images/logo-hd.png" alt="연세타이밍치과" class="intro-logo-img">
+      <img src="/assets/images/logo-hd.png" alt="연세타이밍치과" class="intro-logo-img">
     </div>
   </div>
 
   <!-- ════════ 팝업 ════════ -->
   <div class="popup-overlay" id="popup-overlay">
-    <!-- 이벤트 팝업 -->
     <div class="popup popup-event" id="popup-event">
       <div class="popup-body">
         <p class="popup-label">YONSEI TIMING DENTAL</p>
@@ -76,7 +75,6 @@
         <button class="popup-close-btn" data-popup="popup-event">닫기</button>
       </div>
     </div>
-    <!-- 공지 팝업 -->
     <div class="popup popup-notice" id="popup-notice">
       <div class="popup-body">
         <p class="popup-label">NOTICE</p>
@@ -94,52 +92,13 @@
     </div>
   </div>
 
-  <!-- ════════ 헤더 ════════ -->
-  <header class="hdr hdr-t" id="header">
-    <div class="info-bar dk" id="info-bar">
-      <span>연세타이밍치과 | 예약문의 </span>
-      <strong>02-477-0028</strong>
-      <span> | 서울 강동구 양재대로 1465</span>
-    </div>
-    <nav class="gnb">
-      <a href="#" class="gnb-logo"><img src="assets/images/logo.png" alt="연세타이밍치과" class="logo-img"></a>
-      <div class="gnb-menu dk">
-        <a href="#treatment">진료안내</a>
-        <a href="#doctor">의료진</a>
-        <a href="#facility">시설안내</a>
-        <a href="#visit">오시는길</a>
-      </div>
-      <div class="gnb-actions dk">
-        <a href="http://pf.kakao.com/_xacxbMK" target="_blank" class="btn-kakao">카카오</a>
-        <a href="tel:02-477-0028" class="btn-reserve">예약</a>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="메뉴">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-  </header>
-
-  <!-- 모바일 드로어 -->
-  <div class="mobile-drawer" id="drawer">
-    <div class="drawer-inner">
-      <button class="drawer-close" id="drawer-close">&times;</button>
-      <div class="drawer-menu">
-        <a href="#treatment">진료안내</a>
-        <a href="#doctor">의료진</a>
-        <a href="#facility">시설안내</a>
-        <a href="#visit">오시는길</a>
-      </div>
-      <div class="drawer-actions">
-        <a href="http://pf.kakao.com/_xacxbMK" target="_blank" class="btn-kakao">카카오톡</a>
-        <a href="tel:02-477-0028" class="btn-reserve">전화예약</a>
-      </div>
-    </div>
-  </div>
+  <!-- ════════ 헤더 (include) ════════ -->
+  <div id="header-placeholder"></div>
 
   <!-- ════════ 히어로 ════════ -->
   <section class="hero" id="hero">
-    <video class="hero-video" id="hero-video" autoplay muted loop playsinline poster="assets/videos/hero-poster.jpg">
-      <source src="assets/videos/hero-bg.mp4" type="video/mp4">
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline poster="/assets/videos/hero-poster.jpg">
+      <source src="/assets/videos/hero-bg.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -170,7 +129,7 @@
     </div>
   </section>
 
-  <!-- ════════ 진료안내 ════════ -->
+  <!-- ════════ 진료안내 (카드 그리드) ════════ -->
   <section class="section" id="treatment" style="background:#fff">
     <div class="section-inner">
       <div class="section-header" data-reveal>
@@ -178,127 +137,75 @@
         <p class="section-subtitle">정확한 진단과 정직한 치료</p>
         <h2 class="section-title">전문 분야별 맞춤 진료</h2>
       </div>
-      <div class="tab-bar" data-reveal>
-        <button class="tab-btn active" data-tab="0">임플란트</button>
-        <button class="tab-btn" data-tab="1">치아교정</button>
-        <button class="tab-btn" data-tab="2">심미보철</button>
-        <button class="tab-btn" data-tab="3">일반진료</button>
-        <button class="tab-btn" data-tab="4">예방치료</button>
-      </div>
-      <div data-reveal>
-        <!-- 임플란트 -->
-        <div class="tab-panel treatment-content active" data-panel="0">
-          <div class="treatment-img">
-            <picture>
-              <source srcset="assets/images/treatment/implant.webp" type="image/webp">
-              <img src="assets/images/treatment/implant.jpg" alt="임플란트 시술" width="800" height="600" loading="lazy">
-            </picture>
+      <div class="treatment-grid" data-reveal>
+        <a href="/treatment/implant.html" class="treatment-card">
+          <picture>
+            <source srcset="/assets/images/treatment/implant.webp" type="image/webp">
+            <img src="/assets/images/treatment/implant.jpg" alt="임플란트" loading="lazy">
+          </picture>
+          <div class="treatment-card-info">
+            <p class="treatment-card-en">IMPLANT</p>
+            <h3>임플란트</h3>
+            <p>3D CT 정밀 진단 기반 안전한 식립</p>
+            <span class="treatment-card-more">자세히 보기 →</span>
           </div>
-          <div class="treatment-info">
-            <p class="treatment-en">IMPLANT</p>
-            <h3 class="treatment-name">임플란트</h3>
-            <p class="treatment-desc">3D CT 정밀 진단을 기반으로 디지털 가이드 식립을 통해 안전하고 정확한 임플란트 시술을 제공합니다.</p>
-            <div class="treatment-points">
-              <div class="treatment-point"><span class="check">✓</span><span>3D CT 정밀 진단</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>디지털 가이드 식립</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>당일 임시치아 가능</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>체계적 사후관리</span></div>
-            </div>
-            <a href="tel:02-477-0028" class="treatment-more">상담 예약</a>
+        </a>
+        <a href="/treatment/orthodontics.html" class="treatment-card">
+          <picture>
+            <source srcset="/assets/images/treatment/ortho.webp" type="image/webp">
+            <img src="/assets/images/treatment/ortho.jpg" alt="치아교정" loading="lazy">
+          </picture>
+          <div class="treatment-card-info">
+            <p class="treatment-card-en">ORTHODONTICS</p>
+            <h3>치아교정</h3>
+            <p>투명교정부터 성인교정까지</p>
+            <span class="treatment-card-more">자세히 보기 →</span>
           </div>
-        </div>
-        <!-- 치아교정 -->
-        <div class="tab-panel treatment-content" data-panel="1">
-          <div class="treatment-img">
-            <picture>
-              <source srcset="assets/images/treatment/ortho.webp" type="image/webp">
-              <img src="assets/images/treatment/ortho.jpg" alt="치아교정 상담" width="800" height="600" loading="lazy">
-            </picture>
+        </a>
+        <a href="/treatment/aesthetic.html" class="treatment-card">
+          <picture>
+            <source srcset="/assets/images/treatment/aesthetic.webp" type="image/webp">
+            <img src="/assets/images/treatment/aesthetic.jpg" alt="심미보철" loading="lazy">
+          </picture>
+          <div class="treatment-card-info">
+            <p class="treatment-card-en">AESTHETIC</p>
+            <h3>심미보철</h3>
+            <p>라미네이트·올세라믹·지르코니아</p>
+            <span class="treatment-card-more">자세히 보기 →</span>
           </div>
-          <div class="treatment-info">
-            <p class="treatment-en">ORTHODONTICS</p>
-            <h3 class="treatment-name">치아교정</h3>
-            <p class="treatment-desc">환자 상황에 가장 적합한 교정 솔루션을 제안하여 가지런한 치열을 만들어드립니다.</p>
-            <div class="treatment-points">
-              <div class="treatment-point"><span class="check">✓</span><span>투명교정(인비절라인)</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>세라믹·메탈 교정</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>부분교정 가능</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>성인교정 전문</span></div>
-            </div>
-            <a href="tel:02-477-0028" class="treatment-more">상담 예약</a>
+        </a>
+        <a href="/treatment/general.html" class="treatment-card">
+          <picture>
+            <source srcset="/assets/images/treatment/general.webp" type="image/webp">
+            <img src="/assets/images/treatment/general.jpg" alt="일반진료" loading="lazy">
+          </picture>
+          <div class="treatment-card-info">
+            <p class="treatment-card-en">GENERAL</p>
+            <h3>일반진료</h3>
+            <p>충치·신경치료·사랑니 발치</p>
+            <span class="treatment-card-more">자세히 보기 →</span>
           </div>
-        </div>
-        <!-- 심미보철 -->
-        <div class="tab-panel treatment-content" data-panel="2">
-          <div class="treatment-img">
-            <picture>
-              <source srcset="assets/images/treatment/aesthetic.webp" type="image/webp">
-              <img src="assets/images/treatment/aesthetic.jpg" alt="심미보철 장비" width="800" height="600" loading="lazy">
-            </picture>
+        </a>
+        <a href="/treatment/prevention.html" class="treatment-card">
+          <picture>
+            <source srcset="/assets/images/treatment/prevention.webp" type="image/webp">
+            <img src="/assets/images/treatment/prevention.jpg" alt="예방치료" loading="lazy">
+          </picture>
+          <div class="treatment-card-info">
+            <p class="treatment-card-en">PREVENTION</p>
+            <h3>예방치료</h3>
+            <p>스케일링·정기검진·불소도포</p>
+            <span class="treatment-card-more">자세히 보기 →</span>
           </div>
-          <div class="treatment-info">
-            <p class="treatment-en">AESTHETIC</p>
-            <h3 class="treatment-name">심미보철</h3>
-            <p class="treatment-desc">라미네이트, 올세라믹, 지르코니아 등으로 자연스럽고 아름다운 치아를 완성합니다.</p>
-            <div class="treatment-points">
-              <div class="treatment-point"><span class="check">✓</span><span>라미네이트</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>올세라믹 크라운</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>지르코니아 보철</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>자연색상 매칭</span></div>
-            </div>
-            <a href="tel:02-477-0028" class="treatment-more">상담 예약</a>
-          </div>
-        </div>
-        <!-- 일반진료 -->
-        <div class="tab-panel treatment-content" data-panel="3">
-          <div class="treatment-img">
-            <picture>
-              <source srcset="assets/images/treatment/general.webp" type="image/webp">
-              <img src="assets/images/treatment/general.jpg" alt="일반 치과 진료" width="800" height="600" loading="lazy">
-            </picture>
-          </div>
-          <div class="treatment-info">
-            <p class="treatment-en">GENERAL</p>
-            <h3 class="treatment-name">일반진료</h3>
-            <p class="treatment-desc">충치치료, 신경치료, 사랑니 발치 등 기본에 충실하고 정확한 진료를 편안하게 제공합니다.</p>
-            <div class="treatment-points">
-              <div class="treatment-point"><span class="check">✓</span><span>충치 치료</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>신경(근관) 치료</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>사랑니 발치</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>잇몸 치료</span></div>
-            </div>
-            <a href="tel:02-477-0028" class="treatment-more">상담 예약</a>
-          </div>
-        </div>
-        <!-- 예방치료 -->
-        <div class="tab-panel treatment-content" data-panel="4">
-          <div class="treatment-img">
-            <picture>
-              <source srcset="assets/images/treatment/prevention.webp" type="image/webp">
-              <img src="assets/images/treatment/prevention.jpg" alt="구강 검진" width="800" height="600" loading="lazy">
-            </picture>
-          </div>
-          <div class="treatment-info">
-            <p class="treatment-en">PREVENTION</p>
-            <h3 class="treatment-name">예방치료</h3>
-            <p class="treatment-desc">정기적인 구강검진과 스케일링으로 건강한 상태를 유지합니다.</p>
-            <div class="treatment-points">
-              <div class="treatment-point"><span class="check">✓</span><span>스케일링</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>정기 구강검진</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>불소 도포</span></div>
-              <div class="treatment-point"><span class="check">✓</span><span>구강관리 교육</span></div>
-            </div>
-            <a href="tel:02-477-0028" class="treatment-more">상담 예약</a>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ════════ 병원투어 ════════ -->
   <section class="tour" id="tour">
-    <video class="tour-video" autoplay muted loop playsinline poster="assets/videos/tour-poster.jpg">
-      <source src="assets/videos/hospital-tour.mp4" type="video/mp4">
+    <video class="tour-video" autoplay muted loop playsinline poster="/assets/videos/tour-poster.jpg">
+      <source src="/assets/videos/hospital-tour.mp4" type="video/mp4">
     </video>
     <div class="tour-overlay"></div>
     <div class="tour-content" data-reveal>
@@ -307,7 +214,7 @@
     </div>
   </section>
 
-  <!-- ════════ 의료진 ════════ -->
+  <!-- ════════ 의료진 (요약) ════════ -->
   <section class="section" id="doctor" style="background:var(--bg)">
     <div class="section-inner">
       <div class="section-header" data-reveal>
@@ -315,42 +222,24 @@
         <p class="section-subtitle">연세대 출신 전문의</p>
         <h2 class="section-title">의료진 소개</h2>
       </div>
-      <div class="doctor-card" data-reveal>
-        <div class="doctor-photo">
+      <div class="doctor-summary" data-reveal>
+        <div class="doctor-summary-photo">
           <picture>
-            <source srcset="assets/images/doctor.webp" type="image/webp">
-            <img src="assets/images/doctor.jpg" alt="남승우 원장" width="480" height="640">
+            <source srcset="/assets/images/doctor.webp" type="image/webp">
+            <img src="/assets/images/doctor.jpg" alt="남승우 원장" width="480" height="640">
           </picture>
         </div>
-        <div class="doctor-info">
+        <div class="doctor-summary-info">
           <p class="doctor-role">대표원장</p>
           <h3 class="doctor-name">남승우 원장</h3>
           <div class="doctor-line"></div>
           <p class="doctor-quote">"치아 관리는 타이밍입니다.<br>환자분 한 분 한 분을 가족이라 생각하고, 최선의 치료를<br>정확한 타이밍에 받으실 수 있도록 정성을 다하겠습니다."</p>
-          <div class="doctor-career">
-            <p class="career-category">학력</p>
-            <p><span class="dot">·</span>연세대학교 치의학과/치의학전문대학원 졸업</p>
-            <p><span class="dot">·</span>연세대학교 치과대학병원 전공의(인턴) 수료</p>
-            <p><span class="dot">·</span>보건복지부인증 통합치의학과 전문의</p>
-            <p class="career-category">학회</p>
-            <p><span class="dot">·</span>미국 심미치과학회(AACD) 정회원</p>
-            <p><span class="dot">·</span>미국 임플란트학회(AAID) 정회원</p>
-            <p><span class="dot">·</span>국제 구강임플란트학회(ICOI) 정회원</p>
-            <p><span class="dot">·</span>대한통합치과학회 정회원</p>
-            <p><span class="dot">·</span>대한구강악안면임플란트학회 정회원</p>
-            <p><span class="dot">·</span>대한치과근관치료학회 정회원</p>
-            <p class="career-category">수료</p>
-            <p><span class="dot">·</span>미국 Univ. of Pennsylvania Endodontic Course</p>
-            <p><span class="dot">·</span>서울대학교 ADVANCED 근관치료 연수회</p>
-            <p><span class="dot">·</span>서울대학교 ADVANCED 임상 보존 연구회</p>
-            <p><span class="dot">·</span>오스템 AIC Implant Master Course</p>
-            <p><span class="dot">·</span>Astra Implant Course</p>
-            <p><span class="dot">·</span>CIRD Implant Course 및 상악동 과정</p>
-            <p><span class="dot">·</span>TMD 턱관절 전문과정 외 다수</p>
-            <p class="career-category">경력</p>
-            <p><span class="dot">·</span>전) 비앤비치과 원장</p>
-            <p><span class="dot">·</span>전) 닥터뉴욕치과 원장</p>
-          </div>
+          <p class="doctor-brief">
+            · 연세대학교 치의학과/치의학전문대학원 졸업<br>
+            · 보건복지부인증 통합치의학과 전문의<br>
+            · 미국 심미치과학회(AACD) / 임플란트학회(AAID) 정회원
+          </p>
+          <a href="/about/doctor.html" class="btn-more">자세히 보기 →</a>
         </div>
       </div>
     </div>
@@ -394,7 +283,7 @@
     </div>
   </section>
 
-  <!-- ════════ 시설 ════════ -->
+  <!-- ════════ 시설 (요약) ════════ -->
   <section class="section" id="facility" style="background:#fff">
     <div class="section-inner">
       <div class="section-header" data-reveal>
@@ -402,36 +291,39 @@
         <p class="section-subtitle">깨끗하고 편안한 진료 환경</p>
         <h2 class="section-title">병원 내부시설</h2>
       </div>
-      <div class="facility-grid">
-        <div class="facility-item" data-reveal>
-          <picture><source srcset="assets/images/facility/room-01.webp" type="image/webp"><img src="assets/images/facility/room-01.jpg" alt="진료실" width="800" height="600" loading="lazy"></picture>
+      <div class="facility-grid" data-reveal>
+        <div class="facility-item">
+          <picture><source srcset="/assets/images/facility/room-01.webp" type="image/webp"><img src="/assets/images/facility/room-01.jpg" alt="진료실" loading="lazy"></picture>
           <div class="facility-caption">진료실</div>
         </div>
-        <div class="facility-item" data-reveal>
-          <picture><source srcset="assets/images/facility/room-02.webp" type="image/webp"><img src="assets/images/facility/room-02.jpg" alt="상담실" width="800" height="600" loading="lazy"></picture>
+        <div class="facility-item">
+          <picture><source srcset="/assets/images/facility/room-02.webp" type="image/webp"><img src="/assets/images/facility/room-02.jpg" alt="상담실" loading="lazy"></picture>
           <div class="facility-caption">상담실</div>
         </div>
-        <div class="facility-item" data-reveal>
-          <picture><source srcset="assets/images/facility/room-03.webp" type="image/webp"><img src="assets/images/facility/room-03.jpg" alt="대기실" width="800" height="600" loading="lazy"></picture>
+        <div class="facility-item">
+          <picture><source srcset="/assets/images/facility/room-03.webp" type="image/webp"><img src="/assets/images/facility/room-03.jpg" alt="대기실" loading="lazy"></picture>
           <div class="facility-caption">대기실</div>
         </div>
-        <div class="facility-item" data-reveal>
-          <picture><source srcset="assets/images/facility/room-04.webp" type="image/webp"><img src="assets/images/facility/room-04.jpg" alt="X-Ray실" width="800" height="600" loading="lazy"></picture>
+        <div class="facility-item">
+          <picture><source srcset="/assets/images/facility/room-04.webp" type="image/webp"><img src="/assets/images/facility/room-04.jpg" alt="X-Ray실" loading="lazy"></picture>
           <div class="facility-caption">X-Ray실</div>
         </div>
-        <div class="facility-item" data-reveal>
-          <picture><source srcset="assets/images/facility/room-05.webp" type="image/webp"><img src="assets/images/facility/room-05.jpg" alt="수술실" width="800" height="600" loading="lazy"></picture>
+        <div class="facility-item">
+          <picture><source srcset="/assets/images/facility/room-05.webp" type="image/webp"><img src="/assets/images/facility/room-05.jpg" alt="수술실" loading="lazy"></picture>
           <div class="facility-caption">수술실</div>
         </div>
-        <div class="facility-item" data-reveal>
-          <picture><source srcset="assets/images/facility/room-06.webp" type="image/webp"><img src="assets/images/facility/room-06.jpg" alt="외관" width="800" height="600" loading="lazy"></picture>
+        <div class="facility-item">
+          <picture><source srcset="/assets/images/facility/room-06.webp" type="image/webp"><img src="/assets/images/facility/room-06.jpg" alt="외관" loading="lazy"></picture>
           <div class="facility-caption">외관</div>
         </div>
+      </div>
+      <div class="facility-more" data-reveal>
+        <a href="/about/facility.html" class="btn-more">시설 더보기 →</a>
       </div>
     </div>
   </section>
 
-  <!-- ════════ 진료시간 & 오시는길 ════════ -->
+  <!-- ════════ 진료시간 & 오시는길 (요약) ════════ -->
   <section class="section" id="visit" style="background:var(--bg)">
     <div class="section-inner">
       <div class="section-header" data-reveal>
@@ -459,47 +351,18 @@
             <p><strong>지하철</strong> 5호선 길동역 1번 출구, 길동사거리 방향 100m</p>
             <p><strong>자가용</strong> 건물 내 주차장 이용</p>
           </div>
-          <a href="tel:02-477-0028" class="visit-tel">02-477-0028</a>
+          <a href="/about/location.html" class="btn-more" style="margin-top:8px">자세히 보기 →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════ CTA ════════ -->
-  <section class="cta" data-reveal>
-    <h2>건강한 치아, <span class="gold">지금 시작하세요</span></h2>
-    <p>연세타이밍치과가 여러분의 구강 건강을 함께합니다</p>
-    <div class="cta-btns">
-      <a href="tel:02-477-0028" class="btn-primary">02-477-0028</a>
-      <a href="http://pf.kakao.com/_xacxbMK" target="_blank" class="btn-ghost">카카오톡 상담</a>
-    </div>
-  </section>
+  <!-- ════════ 푸터 (include) ════════ -->
+  <div id="footer-placeholder"></div>
 
-  <!-- ════════ 푸터 ════════ -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <p class="footer-name"><img src="assets/images/logo.png" alt="연세타이밍치과의원" class="footer-logo-img"></p>
-      <p class="footer-info">
-        서울시 강동구 양재대로 1465, 마루빌딩 5층<br>
-        대표원장 남승우 | 사업자등록번호 223-21-01077 | Tel. 02-477-0028
-      </p>
-      <div class="footer-sns">
-        <a href="https://blog.naver.com/wyyezbrmztora" target="_blank" title="네이버 블로그">B</a>
-        <a href="http://pf.kakao.com/_xacxbMK" target="_blank" title="카카오톡">K</a>
-        <a href="tel:02-477-0028" title="전화">T</a>
-      </div>
-      <p class="footer-copy">COPYRIGHT &copy; 2026 YONSEI TIMING DENTAL CLINIC. ALL RIGHTS RESERVED.</p>
-    </div>
-  </footer>
-
-  <!-- ════════ 하단 플로팅바 ════════ -->
-  <div class="floating-bar" id="floating-bar">
-    <a href="tel:02-477-0028" class="fb-phone">전화예약</a>
-    <a href="http://pf.kakao.com/_xacxbMK" target="_blank" class="fb-kakao">카카오톡</a>
-    <a href="https://booking.naver.com/booking/13/bizes/404493" target="_blank" class="fb-naver">네이버예약</a>
-  </div>
-
-  <script src="js/popup.js"></script>
-  <script src="js/main.js" defer></script>
+  <script src="/js/include.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/popup.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>
