@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.claude/
+
+# 참조 파일 (배포 불필요)
+연세타이밍치과_v7.jsx
+연세타이밍치과_클로드코드_기획서.html
