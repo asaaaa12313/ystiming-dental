@@ -83,6 +83,20 @@ img { max-width: 100%; height: auto; }
 }
 .intro.phase-2 .intro-sub,
 .intro.phase-3 .intro-sub { opacity: 1; }
+.intro-logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.intro-logo-img {
+  height: 48px;
+  filter: brightness(0) invert(1);
+}
+.intro.phase-4 .intro-logo { opacity: 1; }
 
 /* ── 팝업 ── */
 .popup-overlay {

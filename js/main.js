@@ -10,12 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = 'hidden';
     setTimeout(function() { intro.classList.add('phase-1'); }, 300);
     setTimeout(function() { intro.classList.add('phase-2'); }, 1400);
-    setTimeout(function() { intro.classList.add('phase-3'); }, 2600);
+    setTimeout(function() { intro.classList.add('phase-3'); }, 2800);
+    setTimeout(function() { intro.classList.add('phase-4'); }, 3400);
     setTimeout(function() {
       intro.classList.add('hidden');
       document.body.style.overflow = '';
       setTimeout(function() { intro.remove(); }, 600);
-    }, 3600);
+    }, 5000);
   }
 
   // ── 2. 스크롤 헤더 ──
