@@ -100,11 +100,11 @@ img { max-width: 100%; height: auto; }
   clip-path: inset(0 100% 0 0);
 }
 .intro.phase-4 .intro-logo-img {
-  animation: logoReveal 1.2s steps(8, end) forwards;
+  animation: logoReveal 1.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 @keyframes logoReveal {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0% 0 0); }
+  from { clip-path: inset(0 100% 0 0); opacity: 0.6; }
+  to { clip-path: inset(0 0% 0 0); opacity: 1; }
 }
 
 /* ── 팝업 ── */
