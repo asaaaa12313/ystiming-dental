@@ -38,64 +38,13 @@ img { max-width: 100%; height: auto; }
   transition: opacity 0.6s ease;
 }
 .intro.hidden { opacity: 0; pointer-events: none; }
-.intro-inner {
-  text-align: center;
-  transition: all 0.9s ease;
-}
-/* 브랜드 (로고 + 병원명) */
-.intro-brand {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  opacity: 0;
-  transition: all 0.9s ease;
-}
-.intro.phase-1 .intro-brand,
-.intro.phase-2 .intro-brand { opacity: 1; }
-.intro.phase-3 .intro-brand {
-  opacity: 0;
-  transform: scale(1.05);
-  filter: blur(6px);
-}
-.intro-logo-img {
-  height: 56px;
-  filter: brightness(0) invert(1);
-  margin-bottom: 28px;
-  opacity: 0;
-  transform: scale(0.85);
-  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.intro.phase-1 .intro-logo-img {
-  opacity: 1;
-  transform: scale(1);
-}
-.intro-name {
-  font-size: 7vw;
-  font-weight: 300;
-  color: #fff;
-  letter-spacing: 0.08em;
-}
-.intro-name span {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.intro.phase-2 .intro-name span { opacity: 1; transform: translateY(0); }
-.intro.phase-2 .intro-name span:nth-child(1) { transition-delay: 0s; }
-.intro.phase-2 .intro-name span:nth-child(2) { transition-delay: 0.07s; }
-.intro.phase-2 .intro-name span:nth-child(3) { transition-delay: 0.14s; }
-.intro.phase-2 .intro-name span:nth-child(4) { transition-delay: 0.21s; }
-.intro.phase-2 .intro-name span:nth-child(5) { transition-delay: 0.28s; }
-.intro.phase-2 .intro-name span:nth-child(6) { transition-delay: 0.35s; }
-.intro.phase-2 .intro-name span:nth-child(7) { transition-delay: 0.42s; }
 
 /* 슬로건 (정확한 진단 / 정직한 진료) */
 .intro-inner {
   text-align: center;
   transition: all 0.9s ease;
 }
-.intro.phase-6 .intro-inner {
+.intro.phase-3 .intro-inner {
   transform: scale(1.03);
   filter: blur(8px);
   opacity: 0;
@@ -114,14 +63,14 @@ img { max-width: 100%; height: auto; }
   opacity: 0;
   transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.intro.phase-4 .intro-line:first-child h1,
-.intro.phase-5 .intro-line:first-child h1,
-.intro.phase-6 .intro-line:first-child h1 {
+.intro.phase-1 .intro-line:first-child h1,
+.intro.phase-2 .intro-line:first-child h1,
+.intro.phase-3 .intro-line:first-child h1 {
   transform: translateY(0);
   opacity: 1;
 }
-.intro.phase-5 .intro-line:nth-child(2) h1,
-.intro.phase-6 .intro-line:nth-child(2) h1 {
+.intro.phase-2 .intro-line:nth-child(2) h1,
+.intro.phase-3 .intro-line:nth-child(2) h1 {
   transform: translateY(0);
   opacity: 1;
   transition-delay: 0.08s;
@@ -134,8 +83,29 @@ img { max-width: 100%; height: auto; }
   opacity: 0;
   transition: opacity 0.8s 0.4s;
 }
-.intro.phase-5 .intro-sub,
-.intro.phase-6 .intro-sub { opacity: 1; }
+.intro.phase-2 .intro-sub,
+.intro.phase-3 .intro-sub { opacity: 1; }
+
+/* 로고 리빌 */
+.intro-logo {
+  position: absolute; inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.intro-logo-img {
+  width: 60vw;
+  max-width: 700px;
+  filter: brightness(0) invert(1);
+  clip-path: inset(0 100% 0 0);
+}
+.intro.phase-4 .intro-logo-img {
+  animation: logoReveal 1.2s steps(8, end) forwards;
+}
+@keyframes logoReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0% 0 0); }
+}
 
 /* ── 팝업 ── */
 .popup-overlay {

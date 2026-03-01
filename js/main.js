@@ -8,17 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
   var intro = document.getElementById('intro');
   if (intro) {
     document.body.style.overflow = 'hidden';
-    setTimeout(function() { intro.classList.add('phase-1'); }, 300);   // 로고 등장
-    setTimeout(function() { intro.classList.add('phase-2'); }, 900);   // 연세타이밍치과 글자
-    setTimeout(function() { intro.classList.add('phase-3'); }, 2600);  // 브랜드 사라짐
-    setTimeout(function() { intro.classList.add('phase-4'); }, 3200);  // 정확한 진단
-    setTimeout(function() { intro.classList.add('phase-5'); }, 4000);  // 정직한 진료
-    setTimeout(function() { intro.classList.add('phase-6'); }, 5200);  // 슬로건 사라짐
+    setTimeout(function() { intro.classList.add('phase-1'); }, 300);   // 정확한 진단
+    setTimeout(function() { intro.classList.add('phase-2'); }, 1400);  // 정직한 진료
+    setTimeout(function() { intro.classList.add('phase-3'); }, 2800);  // 텍스트 사라짐
+    setTimeout(function() { intro.classList.add('phase-4'); }, 3400);  // 로고 분할 리빌
     setTimeout(function() {
       intro.classList.add('hidden');
       document.body.style.overflow = '';
       setTimeout(function() { intro.remove(); }, 600);
-    }, 6000);
+    }, 5200);
   }
 
   // ── 2. 스크롤 헤더 ──
