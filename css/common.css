@@ -57,7 +57,7 @@ img { max-width: 100%; height: auto; }
   height: 58px;
 }
 .gnb-logo { display: flex; align-items: center; }
-.logo-img { height: 32px; width: auto; transition: filter 0.35s; }
+.logo-img { height: 44px; width: auto; transition: filter 0.35s; }
 .hdr-t .logo-img { filter: brightness(0) invert(1); }
 .hdr-s .logo-img { filter: none; }
 
