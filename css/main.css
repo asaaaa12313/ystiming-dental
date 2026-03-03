@@ -54,15 +54,26 @@
 .intro.phase-3 .intro-sub { opacity: 1; }
 
 /* 연세타이밍치과 글자 애니메이션 */
-.intro-name {
+.intro-name-wrap {
   position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center; gap: 4px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
 }
+.intro-name {
+  display: flex; align-items: center; justify-content: center; gap: 2px;
+}
+.intro-name-en {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: #888;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.intro.phase-5 .intro-name-en { opacity: 1; }
 .char {
   display: inline-block;
   font-family: 'Pretendard', sans-serif;
-  font-size: clamp(32px, 7vw, 60px);
-  font-weight: 600;
+  font-size: 9vw;
+  font-weight: 300;
   color: #fff;
   opacity: 0;
   transform: translateY(20px);
