@@ -337,9 +337,9 @@
 }
 .hours-row.night .time { color: var(--gold); }
 .map-container {
-  width: 100%; aspect-ratio: 5/3;
+  width: 100%;
   border: 1px solid var(--border);
-  margin-bottom: 18px; overflow: hidden;
+  margin-bottom: 18px; overflow: hidden; border-radius: 8px;
 }
 .map-container iframe { width: 100%; height: 100%; border: 0; }
 .visit-address { font-size: 14px; color: var(--text-2); margin-bottom: 12px; }
