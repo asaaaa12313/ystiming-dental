@@ -54,10 +54,13 @@ img { max-width: 100%; height: auto; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 58px;
+  height: 90px;
+  transition: height 0.3s ease;
 }
+.hdr-s .gnb { height: 64px; }
 .gnb-logo { display: flex; align-items: center; }
-.logo-img { height: 44px; width: auto; transition: filter 0.35s; }
+.logo-img { height: 72px; width: auto; transition: filter 0.35s, height 0.3s ease; }
+.hdr-s .logo-img { height: 48px; }
 .hdr-t .logo-img { filter: brightness(0) invert(1); }
 .hdr-s .logo-img { filter: none; }
 
