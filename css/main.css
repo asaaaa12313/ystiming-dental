@@ -55,8 +55,8 @@
   display: flex; align-items: center; justify-content: center;
 }
 .intro-logo-img {
-  width: 65vw;
-  max-width: 800px;
+  width: 30vw;
+  max-width: 280px;
   filter: brightness(0) invert(1);
   clip-path: inset(0 100% 0 0);
 }
